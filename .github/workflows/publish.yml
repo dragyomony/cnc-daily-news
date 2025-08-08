@@ -1,0 +1,30 @@
+name: Daily Publish (RSS + Gemini + Safety)
+
+on:
+  schedule:
+    - cron: "0 13 * * *"  # 13:00 UTC daily
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm ci
+      - name: Generate daily posts
+        run: npm run generate
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PERSPECTIVE_API_KEY: ${{ secrets.PERSPECTIVE_API_KEY }}
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: daily publish" || echo "no changes"
+          git push
