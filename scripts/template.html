@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chaotic Neutral Creations Daily</title>
+  <meta name="description" content="Daily curated summaries in board games, art, video games, technology, and fiction books." />
+  <style>
+    :root{
+      --teal:#18a9a9;
+      --orange:#f36a06;
+      --red:#a52424;
+      --ink:#0c0c0c;
+      --bg:#0b0b0b;
+      --card:#111;
+      --muted:#cfcfcf;
+    }
+    html,body{background:var(--bg);color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif}
+    .wrap{max-width:1000px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+    header img{width:64px;height:64px;border-radius:12px;box-shadow:0 0 0 3px var(--orange)}
+    h1{margin:0;font-weight:800;letter-spacing:.2px}
+    .pill{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--ink);border:1px solid #222;color:#ddd;font-size:12px}
+    nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px}
+    @media(min-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
+    article{background:var(--card);border:1px solid #1e1e1e;border-radius:16px;overflow:hidden}
+    article img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+    .pad{padding:16px}
+    .meta{display:flex;gap:8px;align-items:center;color:#bbb;font-size:12px;margin-bottom:8px}
+    a{color:#ffd2bf}
+    footer{margin:32px 0 12px;color:#aaa;font-size:14px;text-align:center}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="assets/images/logo.png" alt="CNC logo" />
+    <div>
+      <h1>Chaotic Neutral Creations Daily</h1>
+      <div class="pill">Board Games · Art · Video Games · Technology · Fiction Books</div>
+      <nav>
+        <span class="pill">Conversational AI summaries</span>
+        <span class="pill">Vetted sources only</span>
+        <span class="pill">Safety screened</span>
+      </nav>
+    </div>
+  </header>
+
+  <main id="posts" class="grid">
+    <!-- POSTS_INJECT -->
+  </main>
+
+  <footer>
+    © <span id="y"></span> Chaotic Neutral Creations · Powered by RSS + Gemini summaries · Skips unsafe content
+    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  </footer>
+</div>
+</body>
+</html>
